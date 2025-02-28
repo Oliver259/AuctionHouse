@@ -46,7 +46,7 @@ namespace AuctionHouse.Verifiers
             }
 
             // Check if there isn't any non-alphanumeric characters
-            if (!password.Any(character => char.IsLetterOrDigit(character)))
+            if (!password.Any(character => !char.IsLetterOrDigit(character)))
             {
                 WriteLine(error);
                 return false;

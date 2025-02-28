@@ -31,7 +31,7 @@ namespace AuctionHouse.Verifiers
         {
             // Check if the input isn't a non-blank string
             string input = (string)inputObject;
-            if (string.IsNullOrEmpty(input))
+            if (string.IsNullOrWhiteSpace(input))
             {
                 WriteLine($"Error: {inputType} must not be blank");
                 return false;
