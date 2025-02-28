@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuctionHouse", "AuctionHous
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5016B01A-7800-4004-ABA8-F780BEF32D7C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuctionHouse.Tests", "AuctionHouse.Tests\AuctionHouse.Tests.csproj", "{20942433-CDD9-4C9D-B3F0-D592C4595917}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuctionHouse", "AuctionHouse\AuctionHouse.csproj", "{CEE7A145-8A6B-424B-9365-495777606E72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,11 +21,23 @@ Global
 		{BEDCBB7B-9DDD-4AEC-98EC-E1C8266EF284}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEDCBB7B-9DDD-4AEC-98EC-E1C8266EF284}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEDCBB7B-9DDD-4AEC-98EC-E1C8266EF284}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20942433-CDD9-4C9D-B3F0-D592C4595917}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20942433-CDD9-4C9D-B3F0-D592C4595917}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20942433-CDD9-4C9D-B3F0-D592C4595917}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20942433-CDD9-4C9D-B3F0-D592C4595917}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEE7A145-8A6B-424B-9365-495777606E72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEE7A145-8A6B-424B-9365-495777606E72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEE7A145-8A6B-424B-9365-495777606E72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEE7A145-8A6B-424B-9365-495777606E72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C1975005-39C2-49DE-BC49-2D3BB7932F9C}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{20942433-CDD9-4C9D-B3F0-D592C4595917} = {5016B01A-7800-4004-ABA8-F780BEF32D7C}
+		{CEE7A145-8A6B-424B-9365-495777606E72} = {5016B01A-7800-4004-ABA8-F780BEF32D7C}
 	EndGlobalSection
 EndGlobal
