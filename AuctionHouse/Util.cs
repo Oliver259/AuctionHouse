@@ -1,5 +1,9 @@
 ﻿using AuctionHouse.Verifiers;
 using static System.Console;
+using System.Runtime.CompilerServices;
+
+// Makes Util visible to tests
+[assembly: InternalsVisibleTo("AuctionHouse.Tests")]
 
 namespace AuctionHouse
 {
@@ -54,10 +58,7 @@ namespace AuctionHouse
                         continue;
                     }
 
-                    else
-                    {
-                        return result;
-                    }
+                    return result;
                 }
 
                 // Display error message
@@ -170,21 +171,15 @@ namespace AuctionHouse
         /// <returns>Returns a newly created address if all input is valid.</returns>
         internal static Address ReadAddress()
         {
-            string stateInput = null;
-
             // Prompt the client for their unit number and store it
             uint unitNumberInput = Util.ReadUint("\nUnit number (0 = none):", "\tUnit number must be a non-negative integer.");
-            if (unitNumberInput == 0)
-            {
-                string unitNumber = unitNumberInput.ToString();
-                unitNumber = "";
-            }
             uint streetNumberInput = Util.ReadStreetNumber("\nStreet number:", "\tStreet number must be a positive integer.");
             string streetNameInput = Util.ReadString("\nStreet name:", new NonBlankStringVerifier("street name"));
             string streetSuffixInput = Util.ReadString("\nStreet suffix:", new NonBlankStringVerifier("street suffix"));
             string cityInput = Util.ReadString("\nCity:", new NonBlankStringVerifier("city"));
             WriteLine();
 
+            string stateInput;
             while (true)
             {
                 // Prompt the client for their state
@@ -200,10 +195,7 @@ namespace AuctionHouse
                     break;
                 }
 
-                else
-                {
-                    WriteLine("\tInvalid state\n");
-                }
+                WriteLine("\tInvalid state\n");
             }
             uint postcodeInput = Util.ReadUint("Postcode (1000 .. 9999):", new NumberRangeVerifier(1000, 9999, "\tPostcode must be between an integer 1000 and 9999\n"));
 
