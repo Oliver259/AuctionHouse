@@ -1,7 +1,4 @@
-﻿using System;
-using Xunit;
-using AuctionHouse;
-using AuctionHouse.Verifiers;
+﻿using AuctionHouse.Verifiers;
 
 namespace AuctionHouse.Tests
 {
