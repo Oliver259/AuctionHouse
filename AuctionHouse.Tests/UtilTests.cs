@@ -7,7 +7,7 @@ namespace AuctionHouse.Tests
         [Fact]
         public void ReadUint_ValidInput_ReturnsCorrectNumber()
         {
-            using (var console = new ConsoleRedirector("42\n"))
+            using (new ConsoleRedirector("42\n"))
             {
                 // Act
                 uint result = Util.ReadUint("Enter a number:", "Invalid input");
@@ -27,14 +27,14 @@ namespace AuctionHouse.Tests
 
                 // Assert
                 Assert.Equal((uint)42, result);
-                Assert.Contains("Invalid input", console.OutputWriter.ToString());
+                Assert.Contains("Invalid input", console.outputWriter.ToString());
             }
         }
 
         [Fact]
         public void ReadStreetNumber_ValidInput_ReturnsCorrectNumber()
         {
-            using (var console = new ConsoleRedirector("123\n"))
+            using (new ConsoleRedirector("123\n"))
             {
                 // Act
                 uint result = Util.ReadStreetNumber("Enter street number:", "Invalid input");
@@ -54,14 +54,14 @@ namespace AuctionHouse.Tests
 
                 // Assert
                 Assert.Equal((uint)42, result);
-                Assert.Contains("Street number must be greater than 0", console.OutputWriter.ToString());
+                Assert.Contains("Street number must be greater than 0", console.outputWriter.ToString());
             }
         }
 
         [Fact]
         public void ReadString_WithNonBlankVerifier_ValidInput_ReturnsInput()
         {
-            using (var console = new ConsoleRedirector("Test String\n"))
+            using (new ConsoleRedirector("Test String\n"))
             {
                 // Act
                 string result = Util.ReadString("Enter a string:", new NonBlankStringVerifier("test"));
@@ -81,7 +81,7 @@ namespace AuctionHouse.Tests
 
                 // Assert
                 Assert.Equal("Valid Input", result);
-                Assert.Contains("Error: test must not be blank", console.OutputWriter.ToString());
+                Assert.Contains("Error: test must not be blank", console.outputWriter.ToString());
             }
         }
 
@@ -89,7 +89,7 @@ namespace AuctionHouse.Tests
         public void ReadDateTime_ValidInput_ReturnsCorrectDateTime()
         {
             var expectedDate = new DateTime(2025, 3, 15, 14, 30, 0);
-            using (var console = new ConsoleRedirector("15/03/2025 14:30\n"))
+            using (new ConsoleRedirector("15/03/2025 14:30\n"))
             {
                 // Create a mock verifier that always returns true
                 var mockVerifier = new MockVerifier(true);
@@ -116,7 +116,7 @@ namespace AuctionHouse.Tests
                            "QLD\n" +      // State
                            "4000\n";      // Postcode
 
-            using (var console = new ConsoleRedirector(input))
+            using (new ConsoleRedirector(input))
             {
                 // Act
                 Address result = Util.ReadAddress();
@@ -145,7 +145,7 @@ namespace AuctionHouse.Tests
                            "QLD\n" +      // State
                            "4000\n";      // Postcode
 
-            using (var console = new ConsoleRedirector(input))
+            using (new ConsoleRedirector(input))
             {
                 // Act
                 Address result = Util.ReadAddress();
@@ -183,7 +183,7 @@ namespace AuctionHouse.Tests
                 // Assert
                 Assert.NotNull(result);
                 Assert.Equal("QLD", result.state);
-                Assert.Contains("Invalid state", console.OutputWriter.ToString());
+                Assert.Contains("Invalid state", console.outputWriter.ToString());
             }
         }
 
@@ -209,7 +209,7 @@ namespace AuctionHouse.Tests
                 // Assert
                 Assert.NotNull(result);
                 Assert.Equal((uint)4000, result.postcode);
-                Assert.Contains("Postcode must be between an integer 1000 and 9999", console.OutputWriter.ToString());
+                Assert.Contains("Postcode must be between an integer 1000 and 9999", console.outputWriter.ToString());
             }
         }
 
