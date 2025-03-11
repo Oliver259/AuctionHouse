@@ -175,13 +175,14 @@ namespace AuctionHouse.Tests
         {
             // Arrange
             using var console = new ConsoleRedirector("");
-            var currentTime = DateTime.Now;
+            // Use a fixed reference time instead of DateTime.Now for test stability
+            var currentTime = new DateTime(2025, 1, 1, 12, 0, 0);
             var verifier = new PickupWindowVerifier(currentTime, "Time must be at least 1 hour in the future");
-            var earlyTime = currentTime.AddMinutes(30).ToString(CultureInfo.InvariantCulture);
-            
+            var earlyTime = currentTime.AddMinutes(30).ToString("yyyy-MM-dd HH:mm:ss");
+    
             // Act
             bool result = verifier.Verify(earlyTime);
-            
+    
             // Assert
             Assert.False(result);
             Assert.Contains("Time must be at least 1 hour in the future", console.outputWriter.ToString());

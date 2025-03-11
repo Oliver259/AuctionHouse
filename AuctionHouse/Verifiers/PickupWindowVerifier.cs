@@ -37,14 +37,15 @@ namespace AuctionHouse.Verifiers
         {
             if (DateTime.TryParse((string)input, out DateTime pickupWindow))
             {
-                if (pickupWindow >= pickupWindowTime.AddHours(1))
+                DateTime minimumValidTime = pickupWindowTime.AddHours(1);
+                
+                if (pickupWindow >= minimumValidTime)
                 {
                     return true;
                 }
-
                 else
                 {
-                    WriteLine($"{errorMessage}");
+                    WriteLine($"\t{errorMessage}");
                     return false;
                 }
             }
